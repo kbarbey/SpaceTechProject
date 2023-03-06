@@ -22,7 +22,7 @@ Tried to install following instructions but impossible to install XSPEC on windo
 
 Tried the option without installing HEASOFT but failed :
 
-$ conda create --name threeml -c conda-forge -c xpsecmodels python=3.9 xpsec-modelsonly numpy scipy matplotlib
+$ `conda create --name threeml -c conda-forge -c xpsecmodels python=3.9 xpsec-modelsonly numpy scipy matplotlib`
 Collecting package metadata (current_repodata.json): ...working... failed
 
 UnavailableInvalidChannel: HTTP 404 NOT FOUND for channel xpsecmodels <https://conda.anaconda.org/xpsecmodels>
