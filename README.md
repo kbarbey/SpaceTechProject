@@ -19,7 +19,10 @@ Continued tutorial:
 6. threeML : ran into some troubles with the installation. Conda command didn't work. Probably because in spacetech_env, I'm using python 3.11. Tried to install threeML in spacetech_env, didn't work. Created a new virtual environment instead as advised in installation instrutions. Couldn't install astromodels with any of the options propose.
 Can't install a load of packages with 3.11 version of python...
 Tried to install following instructions but impossible to install XSPEC on windows...
-Tried the option without installing HEASOFT but failed :$ conda create --name threeml -c conda-forge -c xpsecmodels python=3.9 xpsec-modelsonly numpy scipy matplotlib
+
+Tried the option without installing HEASOFT but failed :
+
+$ conda create --name threeml -c conda-forge -c xpsecmodels python=3.9 xpsec-modelsonly numpy scipy matplotlib
 Collecting package metadata (current_repodata.json): ...working... failed
 
 UnavailableInvalidChannel: HTTP 404 NOT FOUND for channel xpsecmodels <https://conda.anaconda.org/xpsecmodels>
