@@ -30,4 +30,14 @@ You will need to adjust your conda configuration to proceed.
 Use `conda config --show channels` to view your configuration's current state,
 and use `conda config --show-sources` to view config file locations.
 
+Tried the token identification: didn't work->timeout
+
+### TO DO with supervisor :
+Timeout on light curves.
+
+Install 3ML, astromodels, xspec.
+
+Check that token thing
+
+# Week 3:
             
