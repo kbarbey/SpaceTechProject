@@ -42,5 +42,16 @@ Install 3ML, astromodels, xspec.
 
 Check that token thing
 
-# Week 3:
+## Week 3:
+
+Coordinate system: FK5
+Time format: ISDC Julina Date(IJD) based on TT. But in notebook Carlo says ISOT format... Looks like utc_iso function should do the trick or just use utc.
+
+Useful links: 
+1. https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html
+2. https://docs.astropy.org/en/stable/time/index.html
+3. https://heasarc.gsfc.nasa.gov/xamin/index.jsp
+4. https://rhodesmill.org/skyfield/planets.html
+
+Find coord. venus, timerange(where did integral observe venus), scw
             
