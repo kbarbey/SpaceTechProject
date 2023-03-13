@@ -53,6 +53,9 @@ Useful links:
 3. https://heasarc.gsfc.nasa.gov/xamin/index.jsp
 4. https://rhodesmill.org/skyfield/planets.html
 5. https://ssd.jpl.nasa.gov/horizons/app.html#/ great to find ephemerides. Don't know why the results are slightly different than skyfield. Maybe something to do with date format ?
+6. https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/html/c/calceph.naifid.html -> NAIF ID numbers
+
+What's Simbad -> looks like it's only for outside of the solar system objects so we don't care.
 
 ### Next steps are:
 
@@ -61,4 +64,3 @@ Useful links:
 3. "Plot"
 
 Find coord. venus, timerange(where did integral observe venus), scw
-            
