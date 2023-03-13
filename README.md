@@ -44,14 +44,21 @@ Check that token thing
 
 ## Week 3:
 
-Coordinate system: FK5
-Time format: ISDC Julina Date(IJD) based on TT. But in notebook Carlo says ISOT format... Looks like utc_iso function should do the trick or just use utc.
+Coordinate system: ICRS with Solar system Barycenter as origin.
+Time format: ISDC Julian Date(IJD) based on TT. But in notebook Carlo says ISOT format... Looks like utc_iso function should do the trick or just use utc.
 
 Useful links: 
 1. https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html
 2. https://docs.astropy.org/en/stable/time/index.html
 3. https://heasarc.gsfc.nasa.gov/xamin/index.jsp
 4. https://rhodesmill.org/skyfield/planets.html
+5. https://ssd.jpl.nasa.gov/horizons/app.html#/ great to find ephemerides. Don't know why the results are slightly different than skyfield. Maybe something to do with date format ?
+
+### Next steps are:
+
+1. Compute positions of Venus when is was maximally elongated in a certain timerange
+2. Select a science window list for these positions with a certain radius: https://oda-api.readthedocs.io/en/latest/user_guide/ScienceWindowList.html
+3. "Plot"
 
 Find coord. venus, timerange(where did integral observe venus), scw
             
