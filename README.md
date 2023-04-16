@@ -22,7 +22,7 @@ Tried to install following instructions but impossible to install XSPEC on windo
 
 Tried the option without installing HEASOFT but failed :
 
-$ `conda create --name threeml -c conda-forge -c xpsecmodels python=3.9 xpsec-modelsonly numpy scipy matplotlib`
+`$ conda create --name threeml -c conda-forge -c xpsecmodels python=3.9 xpsec-modelsonly numpy scipy matplotlib`
 Collecting package metadata (current_repodata.json): ...working... failed
 
 UnavailableInvalidChannel: HTTP 404 NOT FOUND for channel xpsecmodels <https://conda.anaconda.org/xpsecmodels>
@@ -51,9 +51,10 @@ Useful links:
 1. https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html
 2. https://docs.astropy.org/en/stable/time/index.html
 3. https://heasarc.gsfc.nasa.gov/xamin/index.jsp
-4. https://rhodesmill.org/skyfield/planets.html
+4. https://rhodesmill.org/skyfield/planets.html Skyfield: to compute planets positions, transform coordinate systems, manipulate dates etc...
 5. https://ssd.jpl.nasa.gov/horizons/app.html#/ great to find ephemerides. Don't know why the results are slightly different than skyfield. Maybe something to do with date format ?
 6. https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/html/c/calceph.naifid.html -> NAIF ID numbers
+7. https://rhodesmill.org/skyfield/positions.html#icrs -> Positions in skyfield
 
 What's Simbad -> looks like it's only for outside of the solar system objects so we don't care.
 
@@ -64,3 +65,60 @@ What's Simbad -> looks like it's only for outside of the solar system objects so
 3. "Plot"
 
 Find coord. venus, timerange(where did integral observe venus), scw
+
+## Week 4-5-6
+-
+## Week 7
+
+### List of all useful links(continuously updated)
+
+#### Astropy
+
+https://docs.astropy.org/en/stable/table/index.html -> tables
+https://docs.astropy.org/en/stable/table/access_table.html -> accessing a table
+https://www.astrobetter.com/blog/2013/07/29/python-tip-storing-data/#:~:text=As%20a%20general%20rule%20of,are%20easy%20to%20work%20with -> handling files
+
+#### Sunpy
+
+https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html -> Querying databases using FIDO
+https://sdac.virtualsolar.org/cgi/show_details?keyword=INSTRUMENT -> all instruments vso supports
+https://docs.sunpy.org/en/stable/guide/acquiring_data/helioviewer.html Getting image of the sun and movies at a certain moment querying the Helioviewer project.
+https://docs.sunpy.org/en/stable/generated/gallery/units_and_coordinates/planet_locations -> locating planets in STO or other
+https://docs.sunpy.org/en/stable/generated/api/sunpy.coordinates.frames.html -> coordinate frames
+https://docs.sunpy.org/en/stable/generated/api/sunpy.coordinates.frames.Helioprojective.html#sunpy.coordinates.frames.Helioprojective -> Helioprojective HPO
+https://www.lmsal.com/hek/VOEvent_Spec.html -> HEK event types definition /!\ super important
+https://www.lmsal.com/heksearch/ -> frontend HEK search, useful with images and everything
+
+
+#### Space weather
+
+https://www.spaceweatherlive.com/en/archive/2022/08/30/xray.html -> good generalist website
+https://www.swpc.noaa.gov/products/solar-cycle-progression -> solar cycle progression
+https://data.nas.nasa.gov/helio/portals/solarflares/datasources.html -> Solar flares datasources
+https://student.helioviewer.org/ -> student helioviewer. Find events and make movies/screenshots.
+
+#### Integral
+
+https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html -> science windows
+https://oda-api.readthedocs.io/en/latest/user_guide -> ODA-API
+https://www.cosmos.esa.int/web/integral/instruments-ibis -> IBIS specs
+https://www.cosmos.esa.int/web/integral/instruments-jemx -> JEM-X specs
+
+#### Venus
+
+##### Literature
+
+https://www.britannica.com/place/Venus-planet/The-atmosphere -> Atmosphere
+10.1007/s11214-017-0362-8 -> Solar wind interaction with Venus's atmosphere. Very thorough.
+
+##### Events
+
+https://www.esa.int/Enabling_Support/Operations/Coronal_mass_ejection_hits_Solar_Orbiter_before_Venus_flyby -> 30.08.22 event
+https://www.space.com/venus-battered-sun-eruption-space-weather -> 05.09.22 event
+https://www.space.com/14834-solar-storm-blinds-venus-express-spacecraft.html -> 06.03.2012 event
+
+
+#### Miscellaneous
+
+https://www.vercalendario.info/en/how/convert-ra-degrees-hours.html -> RA, degrees <-> hour
+https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html -> X-Ray transition energy database to find fluorescence

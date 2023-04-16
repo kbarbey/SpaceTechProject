@@ -1,0 +1,23 @@
+<Table length=6>
+     name       dtype 
+-------------- -------
+        SCW_ID bytes12
+       SCW_VER  bytes7
+      SCW_TYPE  bytes8
+          RA_X bytes16
+         DEC_X bytes17
+        OBS_ID bytes11
+      OBS_TYPE  bytes8
+    START_DATE bytes19
+      END_DATE bytes19
+       PI_NAME bytes18
+            PS  bytes7
+      GOOD_SPI  bytes8
+   GOOD_PICSIT bytes11
+    GOOD_ISGRI bytes10
+     GOOD_JEMX  bytes9
+    GOOD_JEMX1 bytes10
+    GOOD_JEMX2 bytes10
+      GOOD_OMC  bytes8
+         DSIZE  bytes9
+SEARCH_OFFSET_ bytes47

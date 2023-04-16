@@ -1,0 +1,27 @@
+RA converter:
+
+https://www.vercalendario.info/en/how/convert-ra-degrees-hours.html
+
+X-Ray transition energies database:
+
+https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html
+
+Sunpy:
+
+https://docs.sunpy.org/en/stable/generated/gallery/units_and_coordinates/planet_locations.html#sphx-glr-download-generated-gallery-units-and-coordinates-planet-locations-py
+
+Solar flare catalog: 
+
+https://data.nas.nasa.gov/helio/portals/solarflares/datasources.html
+
+Acquiring data with Sunpy on HEK:
+
+https://docs.sunpy.org/en/stable/guide/acquiring_data/hek.html
+
+Options for HEK queries:
+
+https://www.lmsal.com/hek/VOEvent_Spec.html
+
+Solar viewer:
+
+https://student.helioviewer.org/
