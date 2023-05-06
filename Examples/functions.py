@@ -4,6 +4,7 @@ from sunpy.coordinates import frames
 import matplotlib.pyplot as plt
 from astropy.coordinates import SkyCoord
 import astropy.units as u
+from astropy.table import Table
 
 from skyfield.api import load
 from astropy.time import Time
@@ -82,7 +83,61 @@ def plot_venus_position(venus_times,venus_positions):
         plt.scatter(this_position.ra.to('deg'),this_position.dec.to('deg'),s=10,marker = 'o',color='red')
     plt.xlabel('RA')
     plt.ylabel('Dec')
-    plt.title('Venus position in the sky between {} and the {} in the ICRS frame'.format(venus_times[0].utc_iso(), venus_times[-1].utc_iso()))
+    plt.title('Venus position in the sky between {} and the {} in the ICRS frame'.format(venus_times[0].utc_strftime(), venus_times[-1].utc_strftime()))
+def login():
+    import getpass
+    token = getpass.getpass('insert your token: ')
+    import oda_api.token
+    oda_api.token.decode_oda_token(token)
+    import logging
+    logging.getLogger().setLevel(logging.INFO)
+    logging.getLogger('oda_api').addHandler(logging.StreamHandler())
+    return token
+def query_jemx_from_table(table,e1,e2,token):
+    scw_list = []
+    for i in range(len(table)):
+        scw_list.append(str(table['SCW_ID'][i])+'.'+str(table['SCW_VER'][i]))
+    from oda_api.api import DispatcherAPI
+
+    disp = DispatcherAPI(url="https://www.astro.unige.ch/mmoda/dispatch-data", instrument="mock")
+    for scw in scw_list:
+        par_dict = {
+        "E1_keV": e1,
+        "E2_keV": e2,
+        "detection_threshold": "5",
+        "instrument": "jemx",
+        "osa_version": "OSA11.2",
+        "product": "jemx_image",
+        "product_type": "Real",
+        "scw_list": [scw],
+        "integral_data_rights": "all-private",#all-private or public
+        "token": token
+        }
+
+        data_collection = disp.get_product(**par_dict)
+        data_collection.mosaic_image_0_mosaic.write_fits_file(str(scw)+'.fits',overwrite=True)
+def query_jemx_from_scw(scw,e1,e2,token):
+    from oda_api.api import DispatcherAPI
+    disp = DispatcherAPI(url="https://www.astro.unige.ch/mmoda/dispatch-data", instrument="mock")
+    par_dict = {
+    "E1_keV": e1,
+    "E2_keV": e2,
+    "detection_threshold": "5",
+    "instrument": "jemx",
+    "osa_version": "OSA11.2",
+    "product": "jemx_image",
+    "product_type": "Real",
+    "scw_list": [scw],
+    "integral_data_rights": "all-private",#all-private or public
+    "token": token
+    }
+
+    data_collection = disp.get_product(**par_dict)
+    data_collection.mosaic_image_0_mosaic.write_fits_file(str(scw)+'.fits',overwrite=True)
 # def search_hek():
 #     # todo : define this function
 #     return 0
+def plot_jemx_flux:
+    return 0
+def plot_significance:
+    return 0

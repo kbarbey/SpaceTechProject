@@ -25,3 +25,5 @@ https://www.lmsal.com/hek/VOEvent_Spec.html
 Solar viewer:
 
 https://student.helioviewer.org/
+
+https://openastronomy.org/rcsc18/chapters/13-images-in-astronomy/01-images-in-astronomy

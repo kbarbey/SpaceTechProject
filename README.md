@@ -153,3 +153,11 @@ https://www.space.com/14834-solar-storm-blinds-venus-express-spacecraft.html -> 
 https://www.vercalendario.info/en/how/convert-ra-degrees-hours.html -> RA, degrees <-> hour
 
 https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html -> X-Ray transition energy database to find fluorescence
+
+## Week 8
+
+TODO: 
+
+- Retrieve fits of each scw
+- Find venus in each one of them -> careful with the duration of the scw. It won't be a single point but a trace.
+- Plot the lightcurve of venus for this scw. Careful to check the dates.
