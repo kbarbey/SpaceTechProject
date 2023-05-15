@@ -137,7 +137,52 @@ def query_jemx_from_scw(scw,e1,e2,token):
 # def search_hek():
 #     # todo : define this function
 #     return 0
-def plot_jemx_flux:
-    return 0
-def plot_significance:
-    return 0
+def get_lc_jemx(table, fits_data, coord_list):
+
+    from datetime import timedelta
+    from datetime import datetime
+    import math
+    import numpy as np
+    import pytz
+    from astropy.wcs import WCS
+
+    lc_times = []
+    lc_fluxes = []
+    lc_errors = []
+    time_errors = []
+    timezone = pytz.timezone('UTC')
+
+    for scw,coord in zip(fits_data.keys(),coord_list):
+
+        wcs = WCS(fits_data[str(scw)][2].header)
+        row = table[table['SCW_ID'] == scw]
+        t_start=str(row['START_DATE'][0].replace(' ','T'))
+        t_end = str(row['END_DATE'][0].replace(' ','T'))
+        delta_t = datetime.fromisoformat(t_end) - datetime.fromisoformat(t_start)
+        x_start,y_start = wcs.wcs_world2pix(coord[0].ra.deg,coord[0].dec.deg,0)
+        x_end,y_end = wcs.wcs_world2pix(coord[1].ra.deg,coord[1].dec.deg,0)
+        flux_error = np.sqrt(fits_data[str(scw)][3].data[int(y_start),int(x_start)])
+        travel_x, travel_y = np.linspace(x_start,x_end,fits_data[str(scw)][2].data.shape[0]), np.linspace(y_start,y_end,fits_data[str(scw)][2].data.shape[0])
+        flux_values = fits_data[str(scw)][2].data[travel_y.astype(int), travel_x.astype(int)]
+        flux_values = [x for x in flux_values if not math.isnan(x)]
+        unique_flux_values, counts = np.unique(flux_values, return_counts=True)
+        flux_counter = dict(zip(unique_flux_values, counts))
+        flux_times = []
+        time_error = []
+        #define the time errors as the time interval where the flux value is present
+        total_time = datetime.strptime(t_start,'%Y-%m-%dT%H:%M:%S').replace(tzinfo= timezone)
+        print(t_start,t_end, delta_t.total_seconds())
+        for flux in flux_counter.keys():
+            #flux_times.append(total_time + timedelta(seconds=delta_t.total_seconds() * (flux_counter[flux]/len(flux_values)/2)))
+            print(flux_counter[flux],len(flux_values))
+            flux_times.append(total_time + delta_t * (flux_counter[flux]/len(flux_values)/2))
+            print(total_time + delta_t * (flux_counter[flux]/len(flux_values)/2))
+            total_time = total_time + timedelta(seconds=delta_t.total_seconds() * (flux_counter[flux]/len(flux_values)))
+            time_error.append((delta_t.total_seconds() * (flux_counter[flux]/len(flux_values)))/86400/2)
+
+        lc_fluxes.append(unique_flux_values)
+        lc_errors.append(flux_error)
+        lc_times.append(flux_times)
+        time_errors.append(time_error)
+
+    return lc_times, lc_fluxes, lc_errors, time_errors
