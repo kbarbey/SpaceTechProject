@@ -27,3 +27,7 @@ Solar viewer:
 https://student.helioviewer.org/
 
 https://openastronomy.org/rcsc18/chapters/13-images-in-astronomy/01-images-in-astronomy
+
+Statistics
+
+https://ned.ipac.caltech.edu/level5/Leo/Stats4_5.html

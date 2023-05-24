@@ -186,3 +186,4 @@ def get_lc_jemx(table, fits_data, coord_list):
         time_errors.append(time_error)
 
     return lc_times, lc_fluxes, lc_errors, time_errors
+def get_average_jemx()
