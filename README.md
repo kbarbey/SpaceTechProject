@@ -161,3 +161,17 @@ TODO:
 - Retrieve fits of each scw
 - Find venus in each one of them -> careful with the duration of the scw. It won't be a single point but a trace.
 - Plot the lightcurve of venus for this scw. Careful to check the dates.
+
+## Week 9
+
+## Week 10
+
+## Week 11
+
+## Week 12
+
+## Week 13
+
+## Week 14
+
+## End of Semester
