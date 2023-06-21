@@ -1,0 +1,2 @@
+functions.query_jemx_from_scw('010200230010.001',3,10,token)
+factor = 3.6e-10 #erg/s/cm^2
