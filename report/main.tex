@@ -1,14 +1,102 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 2.0 (February 7, 2023)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% NOTE: The bibliography needs to be compiled using the biber engine.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{EE-589}
-\author{kent.barbey }
-\date{February 2023}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Paper size, use either a4paper or letterpaper
+	10pt, % Default font size, can also use 11pt or 12pt, although this is not recommended
+	unnumberedsections, % Comment to enable section numbering
+	twoside, % Two side traditional mode where headers and footers change between odd and even pages, comment this option to make them fixed
+]{LTJournalArticle}
+
+\addbibresource{sample.bib} % BibLaTeX bibliography file
+
+%\runninghead{Shortened Running Article Title} % A shortened article title to appear in the running head, leave this command empty for no running head
+
+\footertext{\textit{Space technologies minor project} (2023)} % Text to appear in the footer, leave this command empty for no footer text
+
+\setcounter{page}{1} % The page number of the first page, set this to a higher number if the article is to be part of an issue or larger work
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{X-Ray Observation of Venus\\ with the INTEGRAL Telescope} % Article title, use manual lines breaks (\\) to beautify the layout
+
+% Authors are listed in a comma-separated list with superscript numbers indicating affiliations
+% \thanks{} is used for any text that should be placed in a footnote on the first page, such as the corresponding author's email, journal acceptance dates, a copyright/license notice, keywords, etc
+\author{%
+	Kent Barbey\textsuperscript{1} \\ \textbf{Supervisor:} Volodymyr Savchenko\textsuperscript{1}
+}
+
+% Affiliations are output in the \date{} command
+\date{\footnotesize\textsuperscript{\textbf{1}}LASTRO, School of Physics, Ecole Polytechnique Fédérale de Lausanne, Switzerland}
+
+% Full-width abstract
+\renewcommand{\maketitlehookd}{%
+	\begin{abstract}
+		\textit{Context:} blablabla \\
+            \textit{Aims:} blablabla \\
+            \textit{Methods:} blablabla \\
+            \textit{Results} blablabla \\
+            \textit{Conclusions:} blablabla
+
+            \textbf{Keywords: }
+	\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
 
 \begin{document}
 
-\maketitle
+\maketitle % Output the title section
+\tableofcontents
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
 
-\section{Introduction}
+\include{report/intro}
+
+
+%------------------------------------------------
+
+\include{report/data}
+
+%------------------------------------------------
+\include{report/results}
+
+%------------------------------------------------
+
+\include{report/discussion}
+
+%------------------------------------------------
+
+\include{report/conclusion}
+
+%----------------------------------------------------------------------------------------
+%	 REFERENCES
+%----------------------------------------------------------------------------------------
+\nocite{*}
+\printbibliography % Output the bibliography
+
+%----------------------------------------------------------------------------------------
 
 \end{document}
