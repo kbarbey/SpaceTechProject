@@ -83,7 +83,7 @@ def plot_venus_position(venus_times,venus_positions):
         plt.scatter(this_position.ra.to('deg'),this_position.dec.to('deg'),s=10,marker = 'o',color='red')
     plt.xlabel('RA')
     plt.ylabel('Dec')
-    plt.title('Venus position in the sky between {} and the {} in the ICRS frame'.format(venus_times[0].utc_strftime(), venus_times[-1].utc_strftime()))
+    plt.title('Timeframe: {}-{}'.format(venus_times[0].utc_strftime(), venus_times[-1].utc_strftime()))
 def login():
     import getpass
     token = getpass.getpass('insert your token: ')
@@ -186,4 +186,3 @@ def get_lc_jemx(table, fits_data, coord_list):
         time_errors.append(time_error)
 
     return lc_times, lc_fluxes, lc_errors, time_errors
-def get_average_jemx()
