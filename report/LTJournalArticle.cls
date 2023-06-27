@@ -63,6 +63,7 @@
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{parskip}
+\usepackage{subcaption}
 \usepackage[sc]{mathpazo} % Use the Palatino font
 
 \linespread{1.05} % Increase line spacing slightly
@@ -141,8 +142,8 @@
 
 \setlength{\droptitle}{-4\baselineskip} % Move the title up
 
-\pretitle{\begin{center}\huge\bfseries} % Article title pre-formatting
-\posttitle{\end{center}} % Article title post-formatting
+%\pretitle{\begin{center}\huge\bfseries} % Article title pre-formatting
+%\posttitle{\end{center}} % Article title post-formatting
 
 \setlength{\thanksmarkwidth}{3pt} % Left margin for the first \thanks line
 \setlength{\thanksmargin}{-3pt} % Left margin for the second and onwards \thanks line
@@ -156,7 +157,7 @@
 \usepackage{abstract} % Allows abstract customization
 
 \renewcommand{\abstractnamefont}{\normalfont\bfseries\vspace{0.5\baselineskip}} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\vspace{-0.5\baselineskip}\normalfont\small\itshape} % Set the abstract itself to small italic text
+\renewcommand{\abstracttextfont}{\vspace{0\baselineskip}\normalfont\small} % Set the abstract itself to small italic text
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
