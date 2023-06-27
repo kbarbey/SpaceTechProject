@@ -53,11 +53,7 @@
 % Full-width abstract
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-		\textit{Context:} blablabla \\
-            \textit{Aims:} blablabla \\
-            \textit{Methods:} blablabla \\
-            \textit{Results} blablabla \\
-            \textit{Conclusions:} blablabla
+            On April 22 and 24, 2022, Venus was inadvertently observed with the JEM-X detector of the \textit{INTEGRAL} space telescope. The observation performed yielded
 
             \textbf{Keywords: }
 	\end{abstract}
@@ -75,12 +71,12 @@
 
 \include{report/intro}
 
+%------------------------------------------------
+
+\include{report/methods}
 
 %------------------------------------------------
 
-\include{report/data}
-
-%------------------------------------------------
 \include{report/results}
 
 %------------------------------------------------
@@ -90,6 +86,191 @@
 %------------------------------------------------
 
 \include{report/conclusion}
+
+%------------------------------------------------
+\section{Annex A}
+This section contains relevant data and models used to obtain the results.
+
+The 2D gaussian models fitted to obtain the different fluxes of \textbf{Fig.} ??? are the following.
+\subsection{Non constant flux assumption}
+This section shows the different fits and the subsequent model for the non constant flux assumption described in \textbf{Sec. Observation, data analysis and methods}.
+\paragraph{22.04 data}
+These correspond to the 22.04.2022 data window.
+    \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/20_psf_notconst.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/21_psf_notconst.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/22_psf_notconst.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/23_psf_notconst.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/24_psf_notconst.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/25_psf_notconst.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/26_psf_notconst.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/27_psf_notconst.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/31_psf_notconst.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/32_psf_notconst.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/33_psf_notconst.png}
+    \end{subfigure}
+    \caption{}
+    \label{model_const_22}
+    \end{figure}
+\paragraph{24.04 data}
+These correspond to the 24.04.2022 data window.
+
+    \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/24_psf_notconst.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/25_psf_notconst.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/26_psf_notconst.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/27_psf_notconst.png}
+    \end{subfigure}%
+    \caption{}
+    \label{model_const_24}
+    \end{figure}
+
+\subsection{Constant flux assumption}
+
+This section shows the different fits and the subsequent model for the constant flux assumption described in \textbf{Sec. Observation, data analysis and methods}.
+\paragraph{22.04 data}
+These correspond to the 22.04.2022 data window.
+    \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/20_psf_const.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/21_psf_const.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/22_psf_const.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/23_psf_const.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/24_psf_const.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/25_psf_const.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/26_psf_const.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/27_psf_const.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/31_psf_const.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/32_psf_const.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2204/33_psf_const.png}
+    \end{subfigure}
+    \caption{}
+    \label{model_notconst_22}
+    \end{figure}
+\paragraph{24.04 data}
+These correspond to the 24.04.2022 data window.
+
+    \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/24_psf_const.png}
+    \end{subfigure}%
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/25_psf_const.png}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/26_psf_const.png}
+    \end{subfigure}
+    \hspace{1em}-
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{report/Figures/models/2404/27_psf_const.png}
+    \end{subfigure}%
+    \caption{}
+    \label{model_notconst_24}
+    \end{figure}
+
+
+\section{Annex B}
+%talk about packages used here.
+The \textit{GitHub} repository corresponding to this project can be accessed here:
+
+\url{https://github.com/kbarbey/EE-589.git}
+
+Apart from the usual \texttt{Python} libraries, the most important packages used included:
+
+\begin{itemize}
+    \item \texttt{Sunpy 5.0} to access the Heliophysics Event Knowledgebase (HEK) containing the different flare and CME events.
+    \item \texttt{Skyfield 1.45} to compute ephemerides.
+    \item \texttt{Astropy 5.2.1}
+\end{itemize}
+
+Moreover, the \href{https://ssd.jpl.nasa.gov/horizons/app.html}{\textit{JPL Horizons}} web interface was used to compute the illumination of Venus and its apparent size as seen from the \textit{INTEGRAL} telescope (observer site code: 500@-198).
 
 %----------------------------------------------------------------------------------------
 %	 REFERENCES
