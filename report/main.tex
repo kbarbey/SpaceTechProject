@@ -53,7 +53,7 @@
 % Full-width abstract
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-            On April 22 and 24, 2022, Venus was inadvertently observed with the JEM-X detector of the \textit{INTEGRAL} space telescope. The observation performed yielded
+            On April 22 and 24, 2022, Venus was serendipitously observed with the JEM-X detector of the \textit{INTEGRAL} space telescope. The observation performed yielded
 
             \textbf{Keywords: }
 	\end{abstract}
@@ -89,10 +89,98 @@
 
 %------------------------------------------------
 \section{Annex A}
-This section contains relevant data and models used to obtain the results.
+This section contains all subsidiary sky plots and relevant data and models used to obtain the results.
 
-The 2D gaussian models fitted to obtain the different fluxes of \textbf{Fig.} ??? are the following.
-\subsection{Non constant flux assumption}
+\subsection{22.04 sky plots}
+
+        \begin{figure}[H]
+        \centering
+        \begin{subfigure}{.3\textwidth}
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/20_map.png}
+        \end{subfigure}%
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/21_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/22_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/23_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/24_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/25_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/26_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/27_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/31_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/32_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2204/33_map.png}
+        \end{subfigure}
+        \caption{Flux map from every SCW where Venus is present on the 22.04.2022. The start and end positions of Venus are circled in white and red respectively. Another bright source is also to verify the correct localisation approach.}
+        \label{22_flux_map}
+        \end{figure}
+
+\subsection{24.04 sky plots}
+
+\begin{figure}[H]
+        \centering
+        \begin{subfigure}{.45\textwidth}
+            \includegraphics[width=\textwidth]{report/Figures/methods/2404/24_map.png}
+        \end{subfigure}%
+        \hspace{1em}-
+        \begin{subfigure}{.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2404/25_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2404/26_map.png}
+        \end{subfigure}
+        \hspace{1em}-
+        \begin{subfigure}{.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{report/Figures/methods/2404/27_map.png}
+        \end{subfigure}
+        \caption{Flux map from every SCW where Venus is present on the 24.04.2022. The start and end positions of Venus are circled in white and red respectively. Another bright source is also to verify the correct localisation approach.}
+        \label{24_map}
+    \end{figure}
+
+The 2D gaussian models fitted to obtain the different fluxes of \textbf{Fig.} \ref{22_lc} and \ref{24_lc} are the following.
+
+\subsection{Non constant flux assumption fits}
 This section shows the different fits and the subsequent model for the non constant flux assumption described in \textbf{Sec. Observation, data analysis and methods}.
 \paragraph{22.04 data}
 These correspond to the 22.04.2022 data window.
@@ -173,7 +261,7 @@ These correspond to the 24.04.2022 data window.
     \label{model_const_24}
     \end{figure}
 
-\subsection{Constant flux assumption}
+\subsection{Constant flux assumption fits}
 
 This section shows the different fits and the subsequent model for the constant flux assumption described in \textbf{Sec. Observation, data analysis and methods}.
 \paragraph{22.04 data}

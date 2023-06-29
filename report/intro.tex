@@ -1,20 +1,54 @@
 \section{Introduction}
 %PUT IT ON ZENODO
-The Sun's activity during the month of April 2022 was high. Indeed, 12 out of the 50 strongest Earth directed solar flares of the year were detected in that only month\footnote{\url{https://www.spaceweatherlive.com/en/solar-activity/top-50-solar-flares/year/2022.html}}. Moreover, 159 coronal mass ejections (CMEs) were detected by the LASCO instrument aboard SOHO in April 2022\footnote{\url{https://www.sidc.be/cactus/catalog.php}}. This is a $\sim$ 79\% increase compared to the 5 precedent months. Combined with an elongation of Venus near its maximal value, the observation conditions of this planet in the high-energy ranges were close to optimal. This report presents the approach used to recover the flux from a moving object, Venus, in the 3-10 keV energy range using the data from the JEM-X instrument aboard the \textit{INTEGRAL} telescope. The values detected from Venus' position is then compared to the Sun's activity during that period.
+The Sun's activity in April 2022 increased drastically compared to earlier that year. Indeed, 12 out of the 50 strongest Earth directed solar flares of the year were detected in that only month\footnote{\url{https://www.spaceweatherlive.com/en/solar-activity/top-50-solar-flares/year/2022.html}}. Moreover, 159 coronal mass ejections (CMEs) were detected by the LASCO instrument aboard SOHO in April 2022\footnote{\url{https://www.sidc.be/cactus/catalog.php}}. This is a $\sim$ 79\% increase compared to the average of the 5 precedent months. Combined with an elongation of Venus near its maximal value of 47.8°, the observation conditions of this planet in the high-energy ranges were close to optimal. This report presents the approach used to recover the X-ray flux from a moving object, Venus, in the 3-10 keV energy range using the data from the JEM-X instrument aboard the \textit{INTEGRAL} telescope. The values detected from Venus' position are then compared to the Sun's activity during that period.
 
-This \textbf{Introduction }section first presents the telescope and instrument used. Then the data retrieving method using the \textit{Online Data Analysis - Application Programming interface} of \textit{INTEGRAL} is described. The main channels X-Rays emission of planets is finally discussed.
+This \textbf{Introduction }section first presents the telescope and instrument used. Then the data retrieving method using the \textit{Online Data Analysis - Application Programming interface} (\texttt{ODA-API}) of \textit{INTEGRAL} is described. The main channels of X-ray emission of planets is discussed.
 
-The \textbf{Observation, data analysis and methods} section shows the steps in the selection of the data, the criteria, assumptions and models used
+The \textbf{Observation, data analysis and methods} section shows the steps in the selection of the data, the criteria, assumptions and models used. This comprises how the solar events were obtained and analysed.
+
+The \textbf{Results} section presents the results of the Venus fluxes using three different methods. The fluxes are then timewise compared with the solar fluxes. A solar event locator is presented using the \texttt{Sunpy} library.
+
+Finally, the results are discussed in the \textbf{Discussion} section.
+
+\textbf{Annex A} provides additional figures on the models used. \textbf{Annex B} lists the different useful resources affiliated to this project.
+
 \subsection{INTEGRAL telescope}
+%talk about what is a scw and put links to some of the integral stuff. Otherwise ref to all the links in the git.
+The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on an elliptic orbit around Earth, is ESA's successor mission to the Cos-B and CGRO telescopes. For 19 years, it has been producing complete maps of the sky in the soft-gamma ray and X-ray sources (keV-MeV range) thanks to its four main instruments: IBIS imager (15 keV-10 MeV), SPI spectrometer (20 keV-8 MeV with a 2 keV spectral resolution at 1.33 MeV), JEM-X X-ray monitor and the OMC optical camera (V-band).
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 8cm]{report/Figures/intro/INTEGRAL_spacecraft_model.png}
-        \caption{Caption}
+        \includegraphics[width = 8.5cm]{report/Figures/intro/INTEGRAL_spacecraft_model.png}
+        \caption{Artist's representation of the \textit{INTEGRAL} telescope.}
         \label{integral}
     \end{figure}
     
         \subsection{JEM-X detector}
+        The Joint European Monitor for X-rays (JEM-X) is a complementary detector on-board the \textit{INTEGRAL} telescope. It is primarily used to support the IBIS and SPI instruments in the lower energies for the studies of $\gamma$-ray and X-ray sources. It can however also provide independant scientific results for soft-spectra sources that could be serendipitously detected in the field-of-view(FOV) of the detector. This is the case for Venus here.
+        % add a table of jemx parameter and performance. See table 1 of osa_um_jemx.pdf
+        The characteristics of JEM-X can be found on \textbf{Tab.} \ref{jemx_perf}. \textbf{Fig.} \ref{jemx}a shows a splitted view of the different constituents of the instrument. \textbf{Fig.} \ref{jemx}b is a top view representation of the coded mask of JEM-X. The instrument actually consists of two of these coded-aperture mask telescope units: JEM-X1 and JEM-X2. Each unit is composed of three parts: the detector, the electronics and the coded mask. For this study, only JEM-X2 data were used.
+
+        The detector of each JEM-X unit consists of a microstrip gas chamber (90\% xenon and 10\% methane at 1.5 bar). The incoming photons are absorbed in the xenon gas by photo-electric absorption and the resulting ionization cloud is then amplified in an avalanche of ionisations by the strong electric field near the microstrip anodes\cite{2020ISDCManual}.
+
+        High-energy electromagnetic radiations cannot be observed using lenses or mirrors. Instead, patterns of materials opaque to the observed wavelengths called \textit{coded-aperture masks} are used. An illustration is shown on \textbf{Fig.} \ref{jemx}b. By blocking the incoming radiation in a pre-determined pattern using mask elements, the image of the source observed casts a shadow on the detector. Reconstruction algorithms are then used to find the position of the source and its intensity\footnote{See \url{https://asd.gsfc.nasa.gov/archive/cai/coded_intr.html\#section2} for details and \cite{Dicke1968SCATTER-HOLERAYS}}. The resolution of the mask is defined by the mask height above the detector and the mask element size. For JEM-X, these a respectively 3.4m and 3.3mm\cite{2020ISDCManual}.
+
+        %explain detector(in osa_um_jemx.pdf) + coded mask(find on internet), don't forget to say that above 5°, the response is too low so the query is only done within 5°.
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{@{}lc@{}}
+        \toprule
+        \multicolumn{2}{c}{\textbf{JEM-X Performance parameters}} \\ \midrule
+        Energy range [keV]                  & 3 - 35              \\
+        Detector area/effective [cm$^2$]    & 500/125             \\
+        Energy resolution                   & 1.3 keV @ 10 keV    \\
+        Field-of-View (FoV)                 & 4.8° (Fully coded)  \\
+        Angular resolution (FWHM) [arcmin]  & 3                   \\ 
+        Pixel size [arcmin]                 & 1.56               
+        \end{tabular}
+        \caption{JEM-X key performance parameters. See \href{https://www.cosmos.esa.int/web/integral/instruments-jemx}{here} for more details.}
+        \label{jemx_perf}
+        \end{table}
         
         \begin{figure}[H]
         \centering
@@ -26,10 +60,24 @@ The \textbf{Observation, data analysis and methods} section shows the steps in t
             \centering
             \includegraphics[width=\textwidth]{report/Figures/intro/jemx_coded_mask.png}
         \end{subfigure}
-        \caption{}
+        \caption{(left) Schematic diagram of the different JEM-X constituents. (right) JEM-X's coded mask.}
         \label{jemx}
         \end{figure}
     
-
     \subsection{\texttt{ODA-API}}
-    \subsection{X-Ray emission of planets}
+
+    Spanning more than nineteen years of nearly continuously taken data, the \textit{INTEGRAL} archives contain information on a large number of sources. The mission was initially planned to operate only for five years and the data sets generated were supposed to stay relatively small. But common to scientific space missions, the life of the telescope was extended as long as it stayed functional. The data analysis pipelines for all instruments uses the Offline Science Analysis (OSA) software distributed by the \textit{INTEGRAL} Science Data Centre (ISDC). This software was optimised for the initial mission and the only solution for data processing before \texttt{ODA-API} was via a local installation of OSA on a user computer. Given the amount of data generated since then, the data processing resources now require a significant amount of computing resources. This is why the \texttt{ODA} was developed. It provides an online \textit{INTEGRAL} data analysis system using high-performance and cloud computing technologies accessible through a web browser via the ODA website\footnote{\url{https://www.astro.unige.ch/mmoda/}} or through an API from e.g. a \texttt{Jupyter} notebook by querying the required parameters (see \textbf{List.} \ref{dict} for an example). The \texttt{ODA-API} was used in this study to retrieve the data from the \textit{INTEGRAL} archives.
+
+    \subsection{HEASARC and \textit{INTEGRAL} Science Window Data}
+
+    The High Energy Astrophysics Science Archive Research Center (HEASARC)\footnote{\url{https://heasarc.gsfc.nasa.gov/}} is the primary archive for space missions studying high energy electromagnetic radiations phenomena. The \textit{INTEGRAL} data is queried from the ISDC data servers using the \texttt{astroquery.heasarc} Python interface\footnote{\url{https://astroquery.readthedocs.io/en/latest/heasarc/heasarc.html\#using-alternative-heasarc-servers}}.
+
+    \textit{INTEGRAL}'s activities are splitted into different categories called \textit{windows}. \textit{Science windows} (scw) are what interest us here. Quoting the ISDC, they are continuous time intervals during which all data acquired by the INTEGRAL instruments result from a specific spacecraft attitude orientation state. Scws have different parameters among which their observation identifier (Obs\textunderscore ID) which is a sequence of 11 digits identifying each scw\footnote{See \url{https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html}} for more details.
+    
+
+    \subsection{X-Ray emission of planets}  
+    Planets of the solar system are interesting targets in the X-ray domain especially in the soft spectra(?? keV).
+    %%talk about processes
+    %%talk about why venus is interesting among all.
+
+    Venus has already been observed in the soft X-rays notably for the first time with the Chandra telescope in ??. The results reported were...
