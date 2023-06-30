@@ -208,7 +208,7 @@
 
 \hypersetup{
 	colorlinks=true, % Whether to color the text of links
-	urlcolor=black, % Color for \url and \href links
+	urlcolor=blue, % Color for \url and \href links
 	linkcolor=black, % Color for \nameref links
 	citecolor=black, % Color of reference citations
 }
@@ -220,7 +220,7 @@
 \newcommand{\runninghead}[1]{\renewcommand{\runninghead}{#1}}
 
 \newcommand{\footertext}[1]{\renewcommand{\footertext}{#1}}
-
+\usepackage{amsmath}
 \DeclareUnicodeCharacter{22C6}{{$\star$ *}}
 \usepackage{float}
 \usepackage{listings}

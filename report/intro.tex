@@ -2,13 +2,13 @@
 %PUT IT ON ZENODO
 The Sun's activity in April 2022 increased drastically compared to earlier that year. Indeed, 12 out of the 50 strongest Earth directed solar flares of the year were detected in that only month\footnote{\url{https://www.spaceweatherlive.com/en/solar-activity/top-50-solar-flares/year/2022.html}}. Moreover, 159 coronal mass ejections (CMEs) were detected by the LASCO instrument aboard SOHO in April 2022\footnote{\url{https://www.sidc.be/cactus/catalog.php}}. This is a $\sim$ 79\% increase compared to the average of the 5 precedent months. Combined with an elongation of Venus near its maximal value of 47.8°, the observation conditions of this planet in the high-energy ranges were close to optimal. This report presents the approach used to recover the X-ray flux from a moving object, Venus, in the 3-10 keV energy range using the data from the JEM-X instrument aboard the \textit{INTEGRAL} telescope. The values detected from Venus' position are then compared to the Sun's activity during that period.
 
-This \textbf{Introduction }section first presents the telescope and instrument used. Then the data retrieving method using the \textit{Online Data Analysis - Application Programming interface} (\texttt{ODA-API}) of \textit{INTEGRAL} is described. The main channels of X-ray emission of planets is discussed.
+This \textbf{Introduction }section first presents the telescope and instrument used. Then the data retrieving method using the \textit{Online Data Analysis - Application Programming interface} (\texttt{ODA-API}) of \textit{INTEGRAL} is described. The main channels of X-ray emission of planets are presented.
 
 The \textbf{Observation, data analysis and methods} section shows the steps in the selection of the data, the criteria, assumptions and models used. This comprises how the solar events were obtained and analysed.
 
 The \textbf{Results} section presents the results of the Venus fluxes using three different methods. The fluxes are then timewise compared with the solar fluxes. A solar event locator is presented using the \texttt{Sunpy} library.
 
-Finally, the results are discussed in the \textbf{Discussion} section.
+Finally, the obtained results are thoroughly examined and interpreted in the \textbf{Discussion} section. The significance and implications of the findings are analysed. Furthermore, future research directions are proposed, highlighting potential avenues for further investigation. 
 
 \textbf{Annex A} provides additional figures on the models used. \textbf{Annex B} lists the different useful resources affiliated to this project.
 
@@ -18,7 +18,7 @@ The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on 
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 8.5cm]{report/Figures/intro/INTEGRAL_spacecraft_model.png}
+        \includegraphics[width = 8cm]{report/Figures/intro/INTEGRAL_spacecraft_model.png}
         \caption{Artist's representation of the \textit{INTEGRAL} telescope.}
         \label{integral}
     \end{figure}
@@ -72,12 +72,28 @@ The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on 
 
     The High Energy Astrophysics Science Archive Research Center (HEASARC)\footnote{\url{https://heasarc.gsfc.nasa.gov/}} is the primary archive for space missions studying high energy electromagnetic radiations phenomena. The \textit{INTEGRAL} data is queried from the ISDC data servers using the \texttt{astroquery.heasarc} Python interface\footnote{\url{https://astroquery.readthedocs.io/en/latest/heasarc/heasarc.html\#using-alternative-heasarc-servers}}.
 
-    \textit{INTEGRAL}'s activities are splitted into different categories called \textit{windows}. \textit{Science windows} (scw) are what interest us here. Quoting the ISDC, they are continuous time intervals during which all data acquired by the INTEGRAL instruments result from a specific spacecraft attitude orientation state. Scws have different parameters among which their observation identifier (Obs\textunderscore ID) which is a sequence of 11 digits identifying each scw\footnote{See \url{https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html}} for more details.
+    \textit{INTEGRAL}'s activities are splitted into different categories called \textit{windows}. \textit{Science windows} (scw) are what interest us here. Quoting the ISDC, they are continuous time intervals during which all data acquired by the INTEGRAL instruments result from a specific spacecraft attitude orientation state. Scws have different parameters among which their observation identifier (Obs\textunderscore ID) which is a sequence of 11 digits identifying each scw\footnote{See \url{https://heasarc.gsfc.nasa.gov/W3Browse/integral/intscw.html} for more details.}.
     
 
-    \subsection{X-Ray emission of planets}  
-    Planets of the solar system are interesting targets in the X-ray domain especially in the soft spectra(?? keV).
+    \subsection{X-ray emission of planets: the case of Venus}  
+    Most planets of our solar system emit in the X-ray domain by interacting with the solar wind(scattering). Most of them are known to shine in the < 3 keV domain. The main emission processes suspected to induce X-ray signal in planetary atmospheres are the following\cite{BhardwajX-raysObjects}:
+
+    \begin{enumerate}
+        \item Collisional excitation of neutral species and ions by charged particle impact
+        (particularly electrons) followed by line emission.
+        \item Brem\ss traslung emission due to electron collisions.
+        \item Solar photon scattering: elastic and K-shell fluorescent
+        \item Charge exchange of solar wind ions with neutrals
+        \item X-ray production from the charge exchange of energetic heavy ions
+        with neutrals or by direct collisional excitation of ions.
+    \end{enumerate}
+    See \cite{BhardwajX-raysObjects} for details about the different processes. Venus is a special planet for that matter as it is deprived of a protecting magnetic field. Studying such a planet is therefore valuable to understand the processes governing the solar wind and atmosphere interaction of planets. Moreover, comets are also deprived of a magnetic field and Venus therefore plays the role of an easily accessible model to understand the impact of the solar wind on these objects
+    
     %%talk about processes
     %%talk about why venus is interesting among all.
 
-    Venus has already been observed in the soft X-rays notably for the first time with the Chandra telescope in ??. The results reported were...
+    Venus has already been observed in the < 3 keV domain notably for the first time with the Chandra telescope\autocite{Dennerl2002DiscoveryChandra}. Venus was expected to be an X-ray emitter due to the verified presence of at least two processes: 3 and 5. In \cite{Dennerl2002DiscoveryChandra}, the planet was clearly detected as a half-lit crescent exhibiting considerable brightening on the sunward limb. The data showed that the emission was dominated by O-K$\alpha$, C-K$\alpha$ fluorescence and N-K$\alpha$ (0.28 keV, 0.53 keV and 0.40 keV). More importantly, the observed fluxes exhibited temporal variability on the scale of minutes. Since the solar flux can vary in a similar fashion, it was expected that these scattered solar X-rays would show the same variability. However the authors didn't find any time correlation between the two fluxes. They explained this result as being due to the fact that solar X-rays are predominantly emitted from localised regions and that Venus was seeing a  46.5°-48° rotated side of the Sun. The solar flux was measured from the GOES satellites orbiting Earth and not Venus. No charge-exchange interactions were measured at these energy ranges and none were expected given the sensitivity of the telescope.
+
+    To observe such charge exchange interactions, Venus was observed during and after it was hit by a powerful interplanetary coronal mass ejection (ICME) in \cite{Xu2019ObservationsEjection}. Heavy ion flux up to 10 keV were observed that were due to charge-exchange interactions with the ICME.
+
+    See \autocite{BhardwajX-raysObjects, Futaana2017SolarAtmosphere} for a great deal of details on the interaction of the solar wind with Venus' atmosphere and solar system planets in general.
