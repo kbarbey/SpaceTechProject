@@ -164,6 +164,8 @@ TODO:
 
 ## Week 9
 
+- Retrieved every scw from 18.04, 20.04, 22.04, 24.04
+
 ## Week 10
 
 ## Week 11
@@ -173,5 +175,7 @@ TODO:
 ## Week 13
 
 ## Week 14
+
+-
 
 ## End of Semester
