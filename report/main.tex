@@ -53,9 +53,9 @@
 % Full-width abstract
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-            On April 22 and 24, 2022, Venus was serendipitously observed with the JEM-X detector of the \textit{INTEGRAL} space telescope. The observation performed yielded
+            On April 22 and 24, 2022, Venus was serendipitously observed with the JEM-X detector of the \textit{INTEGRAL} space telescope. The observation performed yielded a discussed positive observation of the planet using three different modelling methods of the incoming flux of the source. All yielded a positive average flux at the 3$\sigma$ level. No evidence of correlation between the solar and venusian flux variability was found. A very solar flare and CME direction locator was tested and its limits quickly found because of the limited FoV of the satellites contributing to these events' coordinates in the HEK database. This report suggests that the solar system planets can be studied using the available \textit{INTEGRAL} data gathered over the last 19 years.
 
-            \textbf{Keywords: }
+            \textbf{Keywords: scattering - X-ray emission processes - Planets: Venus - Sun: X-rays, gamma-rays - Satellite: \textit{INTEGRAL}}
 	\end{abstract}
 }
 
@@ -184,7 +184,8 @@ The 2D gaussian models fitted to obtain the different fluxes of \textbf{Fig.} \r
 This section shows the different fits and the subsequent model for the non constant flux assumption described in \textbf{Sec. Observation, data analysis and methods}.
 \paragraph{22.04 data}
 These correspond to the 22.04.2022 data window.
-    \begin{figure}[H]
+
+     \begin{figure}[H]
     \centering
     \begin{subfigure}{.47\textwidth}
         \includegraphics[width=\textwidth]{report/Figures/models/2204/20_psf_notconst.png}
@@ -280,11 +281,16 @@ These correspond to the 22.04.2022 data window.
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2204/22_psf_const.png}
     \end{subfigure}
-    \hspace{1em}-
+    \hspace{1em}
     \begin{subfigure}{.47\textwidth}
         \includegraphics[width=\textwidth]{report/Figures/models/2204/23_psf_const.png}
     \end{subfigure}%
-    \hspace{1em}-
+    \label{model_notconst_22}
+    \caption{}
+    \end{figure}
+    \begin{figure}[H]
+    \centering
+    %\hspace{1em}
     \begin{subfigure}{.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2204/24_psf_const.png}
@@ -293,11 +299,11 @@ These correspond to the 22.04.2022 data window.
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2204/25_psf_const.png}
     \end{subfigure}
-    \hspace{1em}-
+    \hspace{1em}
     \begin{subfigure}{.47\textwidth}
         \includegraphics[width=\textwidth]{report/Figures/models/2204/26_psf_const.png}
     \end{subfigure}%
-    \hspace{1em}-
+    \hspace{1em}
     \begin{subfigure}{.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2204/27_psf_const.png}
@@ -306,37 +312,36 @@ These correspond to the 22.04.2022 data window.
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2204/31_psf_const.png}
     \end{subfigure}
-    \hspace{1em}-
+    \hspace{1em}
     \begin{subfigure}{.47\textwidth}
         \includegraphics[width=\textwidth]{report/Figures/models/2204/32_psf_const.png}
     \end{subfigure}%
-    \hspace{1em}-
+    \hspace{1em}
     \begin{subfigure}{.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2204/33_psf_const.png}
     \end{subfigure}
-    \caption{}
-    \label{model_notconst_22}
+    \caption*{\textbf{Figure 25} (continued)}
     \end{figure}
 \paragraph{24.04 data}
 These correspond to the 24.04.2022 data window.
 
     \begin{figure}[H]
     \centering
-    \begin{subfigure}{.47\textwidth}
+    \begin{subfigure}{.4\textwidth}
         \includegraphics[width=\textwidth]{report/Figures/models/2404/24_psf_const.png}
     \end{subfigure}%
     \hspace{1em}-
-    \begin{subfigure}{.47\textwidth}
+    \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2404/25_psf_const.png}
     \end{subfigure}
-    \begin{subfigure}{.47\textwidth}
+    \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{report/Figures/models/2404/26_psf_const.png}
     \end{subfigure}
     \hspace{1em}-
-    \begin{subfigure}{.47\textwidth}
+    \begin{subfigure}{.4\textwidth}
         \includegraphics[width=\textwidth]{report/Figures/models/2404/27_psf_const.png}
     \end{subfigure}%
     \caption{}
@@ -353,7 +358,7 @@ The \textit{GitHub} repository corresponding to this project can be accessed her
 Apart from the usual \texttt{Python} libraries, the most important packages used included:
 
 \begin{itemize}
-    \item \texttt{Sunpy 5.0} to access the Heliophysics Event Knowledgebase (HEK) containing the different flare and CME events.
+    \item \texttt{Sunpy 5.0}\cite{Barnes2020ThePackage} to access the Heliophysics Event Knowledgebase (HEK) containing the different flare and CME events.
     \item \texttt{Skyfield 1.45} to compute ephemerides.
     \item \texttt{Astropy 5.2.1}
 \end{itemize}

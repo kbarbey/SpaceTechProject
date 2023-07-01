@@ -6,7 +6,7 @@ This \textbf{Introduction }section first presents the telescope and instrument u
 
 The \textbf{Observation, data analysis and methods} section shows the steps in the selection of the data, the criteria, assumptions and models used. This comprises how the solar events were obtained and analysed.
 
-The \textbf{Results} section presents the results of the Venus fluxes using three different methods. The fluxes are then timewise compared with the solar fluxes. A solar event locator is presented using the \texttt{Sunpy} library.
+The \textbf{Results} section presents the results of the Venus fluxes using three different methods. The fluxes are then time wise compared with the solar fluxes. A solar event locator is presented using the \texttt{Sunpy} library.
 
 Finally, the obtained results are thoroughly examined and interpreted in the \textbf{Discussion} section. The significance and implications of the findings are analysed. Furthermore, future research directions are proposed, highlighting potential avenues for further investigation. 
 
@@ -14,7 +14,7 @@ Finally, the obtained results are thoroughly examined and interpreted in the \te
 
 \subsection{INTEGRAL telescope}
 %talk about what is a scw and put links to some of the integral stuff. Otherwise ref to all the links in the git.
-The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on an elliptic orbit around Earth, is ESA's successor mission to the Cos-B and CGRO telescopes. For 19 years, it has been producing complete maps of the sky in the soft-gamma ray and X-ray sources (keV-MeV range) thanks to its four main instruments: IBIS imager (15 keV-10 MeV), SPI spectrometer (20 keV-8 MeV with a 2 keV spectral resolution at 1.33 MeV), JEM-X X-ray monitor and the OMC optical camera (V-band).
+The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on an elliptic orbit around Earth, is ESA's successor mission to the Cos-B and CGRO telescopes. For 19 years, it has been producing complete maps of the sky in the soft-gamma ray and X-ray sources (keV-MeV range) thanks to its four main instruments: IBIS imager (15 keV-10 MeV), SPI spectrometer (20 keV-8 MeV with a 2 keV spectral resolution at 1.33 MeV), JEM-X X-ray monitor and the OMC optical camera (V-band)\cite{integraal}.
     
     \begin{figure}[H]
         \centering
@@ -24,7 +24,7 @@ The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on 
     \end{figure}
     
         \subsection{JEM-X detector}
-        The Joint European Monitor for X-rays (JEM-X) is a complementary detector on-board the \textit{INTEGRAL} telescope. It is primarily used to support the IBIS and SPI instruments in the lower energies for the studies of $\gamma$-ray and X-ray sources. It can however also provide independant scientific results for soft-spectra sources that could be serendipitously detected in the field-of-view(FOV) of the detector. This is the case for Venus here.
+        The Joint European Monitor for X-rays (JEM-X) is a complementary detector on-board the \textit{INTEGRAL} telescope. It is primarily used to support the IBIS and SPI instruments in the lower energies for the studies of $\gamma$-ray and X-ray sources. It can however also provide independant scientific results for soft-spectra sources that could be serendipitously detected in the field-of-view(FOV) of the detector. This is the case for Venus here\cite{2020ISDCManual}.
         % add a table of jemx parameter and performance. See table 1 of osa_um_jemx.pdf
         The characteristics of JEM-X can be found on \textbf{Tab.} \ref{jemx_perf}. \textbf{Fig.} \ref{jemx}a shows a splitted view of the different constituents of the instrument. \textbf{Fig.} \ref{jemx}b is a top view representation of the coded mask of JEM-X. The instrument actually consists of two of these coded-aperture mask telescope units: JEM-X1 and JEM-X2. Each unit is composed of three parts: the detector, the electronics and the coded mask. For this study, only JEM-X2 data were used.
 
@@ -66,7 +66,7 @@ The INTErnational Gamma-RAy Laboratory (\textit{INTEGRAL}), launched in 2002 on 
     
     \subsection{\texttt{ODA-API}}
 
-    Spanning more than nineteen years of nearly continuously taken data, the \textit{INTEGRAL} archives contain information on a large number of sources. The mission was initially planned to operate only for five years and the data sets generated were supposed to stay relatively small. But common to scientific space missions, the life of the telescope was extended as long as it stayed functional. The data analysis pipelines for all instruments uses the Offline Science Analysis (OSA) software distributed by the \textit{INTEGRAL} Science Data Centre (ISDC). This software was optimised for the initial mission and the only solution for data processing before \texttt{ODA-API} was via a local installation of OSA on a user computer. Given the amount of data generated since then, the data processing resources now require a significant amount of computing resources. This is why the \texttt{ODA} was developed. It provides an online \textit{INTEGRAL} data analysis system using high-performance and cloud computing technologies accessible through a web browser via the ODA website\footnote{\url{https://www.astro.unige.ch/mmoda/}} or through an API from e.g. a \texttt{Jupyter} notebook by querying the required parameters (see \textbf{List.} \ref{dict} for an example). The \texttt{ODA-API} was used in this study to retrieve the data from the \textit{INTEGRAL} archives.
+    Spanning more than nineteen years of nearly continuously taken data, the \textit{INTEGRAL} archives contain information on a large number of sources. The mission was initially planned to operate only for five years and the data sets generated were supposed to stay relatively small\cite{Neronov2020AnTelescope}. But common to scientific space missions, the life of the telescope was extended as long as it stayed functional. The data analysis pipelines for all instruments uses the Offline Science Analysis (OSA) software distributed by the \textit{INTEGRAL} Science Data Centre (ISDC). This software was optimised for the initial mission and the only solution for data processing before \texttt{ODA-API} was via a local installation of OSA on a user computer. Given the amount of data generated since then, the data processing resources now require a significant amount of computing resources. This is why the \texttt{ODA} was developed\cite{Neronov2020AnTelescope}. It provides an online \textit{INTEGRAL} data analysis system using high-performance and cloud computing technologies accessible through a web browser via the ODA website\footnote{\url{https://www.astro.unige.ch/mmoda/}} or through an API from e.g. a \texttt{Jupyter} notebook by querying the required parameters (see \textbf{List.} \ref{dict} for an example). The \texttt{ODA-API} was used in this study to retrieve the data from the \textit{INTEGRAL} archives.
 
     \subsection{HEASARC and \textit{INTEGRAL} Science Window Data}
 
