@@ -165,17 +165,22 @@ TODO:
 ## Week 9
 
 - Retrieved every scw from 18.04, 20.04, 22.04, 24.04
+- Checked suitable data: if target is in the field etc...
 
-## Week 10
+## Week 10 - 12
 
-## Week 11
-
-## Week 12
+- Started analysis of data, check report for details.
 
 ## Week 13
+
+-
 
 ## Week 14
 
 -
 
 ## End of Semester
+
+- Finished analysis
+- Added sunspot locator
+- Writing of report
